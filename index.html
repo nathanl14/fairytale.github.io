@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<style>
+		/* The book container */
+		.book {
+			width: 125%;
+			height: 92vh;
+			display: flex;
+			overflow-x: scroll;
+		}
+
+
+		/* The pages */
+		.page {
+			width: 80%;
+			height: 100%;
+			background-color: white;
+			border: 1px solid black;
+			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+			margin-right: 20px;
+			display: none;
+		}
+
+
+		/* Show only the current page */
+		.page.current {
+			display: block;
+			text-align: justify;
+			padding: 20px;
+			font-size: 14px;
+			color: #555;
+			font-size: x-large;
+
+
+		}
+
+
+		/* The heading and paragraphs inside the pages */
+		.page h1 {
+			text-align: center;
+			color: #333;
+		}
+
+
+		.page p {
+			text-align: justify;
+			padding: 20px;
+			font-size: 14px;
+			color: #555;
+			font-size: x-large;
+		}
+
+
+
+
+		.page h1 {
+			text-align: center;
+			color: #333;
+		}
+
+
+		.page p {
+			text-align: justify;
+			padding: 20px;
+			font-size: 14px;
+			color: #555;
+			font-size: x-large;
+
+		}
+
+
+		/* The buttons */
+		button {
+			background-color: rgba(89, 255, 0, 0.878);
+			color: rgb(0, 0, 0);
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-top: 20px;
+			margin-left: 4in;
+		}
+	</style>
+</head>
+
+
+<body>
+	<!-- The book container -->
+	<div class="book">
+		<!-- Page 1 -->
+		<div class="page current">
+			<h1>The Twins & The Sword Of Zandor</h1>
+			<img src="t.png" style="width: 50%; height: 60%; display: block; margin: 0 auto; ">
+
+
+			<p></p>
+		</div>
+		<!-- Page 2 -->
+		<div class="page">
+			<h1>Page 2</h1>
+			<p></p>
+		</div>
+		<!-- Page 3 -->
+		<div class="page">
+			<h1>Page 3</h1>
+			<img src="jg.png" style="width: 50%; height: 50%; display: block; margin: 0 auto; ">
+			<p>Once upon a time, in the African kingdom of Zandor, two sweethearts King Kofi and Queen Adwoa got married
+				and planned on
+				having one son, someday ruling the kingdom but on the day of birth, twin boys named Olu and Uba were
+				born. The two
+				brothers were best friends and inseparable until one day the kingdom's ruling was in jeopardy and their
+				father, king
+				Kofi, was near death. It was then that he declared that the twin princes fight for the right to rule the
+				kingdom, for
+				only one of them could be king.</p>
+		</div>
+		<!-- Page 4 -->
+		<div class="page">
+			<h1>Page 4</h1>
+			<p>The people were shocked but they did not complain, as long as long as the got a new king. At noon
+				everyone gathered in
+				the Kingdom Courtyard and there was lots of speculation about who would win this battle for the throne
+				since they were
+				twin brothers. The fight began as they both bowed to each other and the umpire yells "fight".</p>
+		</div>
+		<!-- Page 5 -->
+		<div class="page">
+			<h1>Page 5</h1>
+			<p>They both fought with everything they had, as they threw punches and kicks. But finally after
+				many hours and much blood loss, Uba made a mistep when he stumbled on a rock while trying to kick and he dropped to the ground, as  Olu got on top of Uba and got
+				wrapped his arm around Uba's neck choking Uba with every ounce of power he left. Leaving 
+				Uba to tap out into submission.</p>
+		</div>
+
+
+		<!-- Page 6 -->
+		<div class="page">
+			<h1>Page 6</h1>
+			<p> Both brothers stood up as the umpire announced that Olu was the winner and he would be become the new king over
+			his brother, Uba.
+	They both gave their finishing bow to each and showed their sportsmanship, as Uba congratulated Olu and
+				they hugged it out , blood drenched in their clothing with bumps and bruises on their face. </p>
+		</div>
+
+
+		<!-- Page 7 -->
+		<div class="page">
+			<h1>This great loss devasted Uba and it seemed that it brought him into a state of depression, for the reason
+				that had he not tripped while trying to kick. </h1>
+			<p> </p>
+		</div>
+
+		<div class="page">
+			<h1>Uba became jealous and this feeling of jealousy turned into resentment and eventually, Olu became so
+			consumed by his own
+			desire for power he began using dark magic to torment people and become more powerful. King Kofi
+			eventually died and Olu
+			succeded his father. After Olu heard about Uba wrongdoings,
+			as king he had no choice but to banish his own brother from the kingdom of Zandor.</h1>
+			<p> </p>
+		</div>
+
+
+		<div class="page">
+			<h1>Uba yelled "I will be back!"</h1>
+			<p> </p>
+		</div>
+
+	<div class="page">
+		<h1>Page 10</h1>
+		<p> </p>
+	</div>
+
+
+
+
+
+	</div>
+
+
+	<!-- The buttons -->
+	<button id="previous">Previous Page</button>
+	<button id="next">Next Page</button>
+
+
+	<script>
+		// Get the book container and pages
+		const book = document.querySelector(".book");
+		const pages = document.querySelectorAll(".page");
+
+
+		// Get the buttons
+		const previousButton = document.querySelector("#previous");
+		const nextButton = document.querySelector("#next");
+
+
+		// Keep track of the current page
+		let currentPage = 0;
+
+
+		// Show the first page
+
+
+		// Show the first page
+		pages[currentPage].classList.add("current");
+
+
+		// Handle the Previous Page button
+		previousButton.addEventListener("click", function () {
+			pages[currentPage].classList.remove("current");
+			currentPage--;
+
+
+			if (currentPage < 0) {
+				currentPage = pages.length - 1;
+			}
+
+
+			pages[currentPage].classList.add("current");
+			book.scrollLeft = currentPage * pages[currentPage].offsetWidth;
+		});
+
+
+		// Handle the Next Page button
+		nextButton.addEventListener("click", function () {
+			pages[currentPage].classList.remove("current");
+			currentPage++;
+
+
+			if (currentPage >= pages.length) {
+				currentPage = 0;
+			}
+
+
+			pages[currentPage].classList.add("current");
+			book.scrollLeft = currentPage * pages[currentPage].offsetWidth;
+		});
+	</script>
+</body>
+
+
+</html>
